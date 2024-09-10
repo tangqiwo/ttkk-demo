@@ -26,20 +26,20 @@
     }
 
     const handleOnclick2 = () => {
-      document.querySelector('#content').innerHTML = JSON.stringify(window)
+      const functionsInWindow = [];
+
+      for (const key in window) {
+        if (typeof window[key] === 'function') {
+          functionsInWindow.push(key);
+        }
+      }
+
+      console.log(functionsInWindow);
+      document.querySelector('#content').innerHTML = functionsInWindow.join('<br>');
     }
 
     const handleOnclick3 = () => {
-      window._myWin = window.open("", "_blank");
-      window._myWin.document.write('<h1>新窗口0</h1>');
-      window._myWin.onload = () => {
-        window._myWin.document.write('<h1>新窗口1</h1>');
-        window._myWin.location = 'https://baidu.com/';
-        window._myWin.document.write('<h1>新窗口2</h1>');
-      }
-      setTimeout(() => {
-        window._myWin.document.write('<h1>新窗口3</h1>');
-      }, 5000);
+      document.querySelector('#content').innerHTML = window.open.toString();
     }
   </script>
 </head>
