@@ -16,7 +16,11 @@
 
     const handleOnclick2 = () => {
       window._myWin = window.open("./test.html", "_blank");
-      window._myWin.window.document.body.style.backgroundColor = 'green';
+      try{
+        window._myWin.window.document.body.style.backgroundColor = 'green';
+      }catch(e){
+        alert(JSON.stringify(e));
+      }
     }
   </script>
 </head>
