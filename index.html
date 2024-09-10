@@ -41,6 +41,13 @@
     const handleOnclick3 = () => {
       document.querySelector('#content').innerHTML = window.open.toString();
     }
+
+    const handleOnclick4 = () => {
+      localStorage.clear();
+      window._myWin = window.open("./test.html", "_blank");
+      localStorage.setItem('content', '这是我存储的LS内容' + Math.random());
+    }
+
   </script>
 </head>
 <body>
@@ -53,6 +60,9 @@
   </button>
   <button onclick="handleOnclick3()">
     点击打开3窗口
+  </button>
+  <button onclick="handleOnclick4()">
+    点击打开4窗口
   </button>
   <div id="content">
     默认内容
