@@ -16,16 +16,13 @@
 
     const handleOnclick2 = () => {
       window._myWin = window.open("./test.html", "_blank");
-      try{
-        window._myWin.window.onload = () => {
-          try{
-            window._myWin.window.document.body.style.backgroundColor = 'green';
-          }catch(err){
-            alert(`onload2:` + err.message);
-          }
+      alert(window._myWin)
+      window._myWin.window.onload = () => {
+        try{
+          window._myWin.window.document.body.style.backgroundColor = 'green';
+        }catch(err){
+          alert(`onload2:` + err.message);
         }
-      }catch(e){
-        alert(`onload:` + e.message);
       }
     }
   </script>
