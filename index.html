@@ -13,15 +13,33 @@
     const handleOnclick = () => {
       window._myWin = window.open("", "_blank");
       document.querySelector('#content').innerHTML = '后续同步代码修改....';
+      // 向新窗口写入内容
+      window._myWin.document.write('<h1>新窗口</h1>');
       setTimeout(() => {
-        // try{
-        //   window._myWin.location = 'https://baidu.com/';
-        // }catch(e){
-        //   alert(JSON.stringify(e))
-        // }
-        window._myWin.location = 'https://baidu.com/';
+        try{
+          window._myWin.location = 'https://baidu.com/';
+        }catch(e){
+          alert(JSON.stringify(e))
+        }
         document.querySelector('#content').innerHTML = '后续异步代码修改....';
       }, 2000);
+    }
+
+    const handleOnclick2 = () => {
+      alert(navigator.userAgent);
+    }
+
+    const handleOnclick3 = () => {
+      window._myWin = window.open("", "_blank");
+      window._myWin.document.write('<h1>新窗口0</h1>');
+      window._myWin.onload = () => {
+        window._myWin.document.write('<h1>新窗口1</h1>');
+        window._myWin.location = 'https://baidu.com/';
+        window._myWin.document.write('<h1>新窗口2</h1>');
+      }
+      setTimeout(() => {
+        window._myWin.document.write('<h1>新窗口3</h1>');
+      }, 5000);
     }
   </script>
 </head>
@@ -30,11 +48,11 @@
   <button onclick="handleOnclick()">
     点击打开1
   </button>
-  <button onclick="handleOnclick()">
+  <button onclick="handleOnclick2()">
     点击打开2
   </button>
-  <button onclick="handleOnclick()">
-    点击打开3
+  <button onclick="handleOnclick3()">
+    点击打开3窗口
   </button>
   <div id="content">
     默认内容
