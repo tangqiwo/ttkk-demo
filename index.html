@@ -9,8 +9,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TIKTOK DEMO</title>
+  <script>
+    const handleOnclick = () => {
+      window._myWin = window.open('https://google.com/');
+      setTimeout(() => {
+        document.querySelector('#content').innerHTML = '修改后的内容....';
+      }, 2000);
+    }
+  </script>
 </head>
 <body>
   <h1>TIKTOK DEMO</h1 >
+  <button onclick="handleOnclick()">
+    点击打开
+  </button>
+  <div id="content">
+    this is default content
+  </div>
 </body>
 </html>
