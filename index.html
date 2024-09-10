@@ -46,6 +46,9 @@
       localStorage.clear();
       window._myWin = window.open("./test.html", "_blank");
       localStorage.setItem('content', '这是我存储的LS内容' + Math.random());
+      setTimeout(() => {
+        localStorage.setItem('delayContent', '这是我延迟存储的LS内容' + Math.random());
+      }, 1000);
     }
 
   </script>

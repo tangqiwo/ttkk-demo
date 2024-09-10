@@ -12,11 +12,13 @@
   <script>
     setTimeout(() => {
       document.querySelector('#content').innerHTML = localStorage.getItem('content');
-    }, 1000);
+      document.querySelector('#content2').innerHTML = localStorage.getItem('delayContent');
+    }, 2000);
   </script>
 </head>
 <body>
   <div>LS内容</div>
   <div id="content"></div>
+  <div id="content2"></div>
 </body>
 </html>
