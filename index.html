@@ -18,10 +18,14 @@
       window._myWin = window.open("./test.html", "_blank");
       try{
         window._myWin.window.onload = () => {
-          window._myWin.window.document.body.style.backgroundColor = 'green';
+          try{
+            window._myWin.window.document.body.style.backgroundColor = 'green';
+          }catch(err){
+            alert(`onload2:` + err.message);
+          }
         }
       }catch(e){
-        alert(JSON.stringify(e));
+        alert(`onload:` + e.message);
       }
     }
   </script>
