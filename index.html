@@ -1,8 +1,3 @@
-<!--
- * @Date: 2024-09-10 15:26:54
- * @FilePath: /ttkk-demo/index.html
- * @Description:
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,38 +6,6 @@
   <title>TIKTOK DEMO</title>
   <script>
     const handleOnclick = () => {
-      window._myWin = window.open("", "_blank");
-      document.querySelector('#content').innerHTML = '后续同步代码修改....';
-      // 向新窗口写入内容
-      window._myWin.document.write('<h1>新窗口</h1>');
-      setTimeout(() => {
-        try{
-          window._myWin.location = 'https://baidu.com/';
-        }catch(e){
-          alert(JSON.stringify(e))
-        }
-        document.querySelector('#content').innerHTML = '后续异步代码修改....';
-      }, 2000);
-    }
-
-    const handleOnclick2 = () => {
-      const functionsInWindow = [];
-
-      for (const key in window) {
-        if (typeof window[key] === 'function') {
-          functionsInWindow.push(key);
-        }
-      }
-
-      console.log(functionsInWindow);
-      document.querySelector('#content').innerHTML = functionsInWindow.join('<br>');
-    }
-
-    const handleOnclick3 = () => {
-      document.querySelector('#content').innerHTML = window.open.toString();
-    }
-
-    const handleOnclick4 = () => {
       localStorage.clear();
       window._myWin = window.open("./test.html", "_blank");
       localStorage.setItem('content', '这是我存储的LS内容' + Math.random());
@@ -51,24 +14,23 @@
       }, 1000);
     }
 
+    const handleOnclick2 = () => {
+      window._myWin = window.open("./test.html", "_blank");
+      window._myWin.window.onload = () => {
+        window._myWin.window.document.body.style.backgroundColor = 'red';
+        window._myWin.window.location.href = 'https://www.tiktok.com/';
+      };
+    }
   </script>
 </head>
 <body>
   <h1>TIKTOK DEMO</h1 >
   <button onclick="handleOnclick()">
-    点击打开1
+    点击打开
   </button>
   <button onclick="handleOnclick2()">
     点击打开2
   </button>
-  <button onclick="handleOnclick3()">
-    点击打开3窗口
-  </button>
-  <button onclick="handleOnclick4()">
-    点击打开4窗口
-  </button>
-  <div id="content">
-    默认内容
-  </div>
 </body>
 </html>
+
