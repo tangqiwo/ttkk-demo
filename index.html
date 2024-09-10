@@ -11,9 +11,16 @@
   <title>TIKTOK DEMO</title>
   <script>
     const handleOnclick = () => {
-      window._myWin = window.open('https://google.com/');
+      window._myWin = window.open("", "_blank");
+      document.querySelector('#content').innerHTML = '后续同步代码修改....';
       setTimeout(() => {
-        document.querySelector('#content').innerHTML = '修改后的内容....';
+        // try{
+        //   window._myWin.location = 'https://baidu.com/';
+        // }catch(e){
+        //   alert(JSON.stringify(e))
+        // }
+        window._myWin.location = 'https://baidu.com/';
+        document.querySelector('#content').innerHTML = '后续异步代码修改....';
       }, 2000);
     }
   </script>
@@ -21,10 +28,16 @@
 <body>
   <h1>TIKTOK DEMO</h1 >
   <button onclick="handleOnclick()">
-    点击打开
+    点击打开1
+  </button>
+  <button onclick="handleOnclick()">
+    点击打开2
+  </button>
+  <button onclick="handleOnclick()">
+    点击打开3
   </button>
   <div id="content">
-    this is default content
+    默认内容
   </div>
 </body>
 </html>
